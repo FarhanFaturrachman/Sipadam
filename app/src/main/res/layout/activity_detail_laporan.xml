@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+    <!-- Logo Damkar buram di tengah -->
+    <ImageView
+        android:id="@+id/bg_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:alpha="0.2"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true" />
+
+    <!-- Konten Utama -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/blue_dark"
+            android:fitsSystemWindows="true"
+            app:navigationIcon="@drawable/ic_back"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <!-- Judul di kiri -->
+                <TextView
+                    android:id="@+id/toolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DETAIL"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical" />
+
+                <!-- Spacer -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- Logo di kanan -->
+                <ImageView
+                    android:id="@+id/toolbarLogo"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Logo Damkar"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/damkar2" />
+            </LinearLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+
+
+    <!-- Konten scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+        <!-- === Konten Utama === -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- INFORMASI UMUM -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="INFORMASI UMUM" />
+
+                <TextView style="@style/LabelTitle" android:text="Hari" />
+                <TextView android:id="@+id/tvHari" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Tanggal" />
+                <TextView android:id="@+id/tvTanggal" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Jenis Kejadian" />
+                <TextView android:id="@+id/tvJenisKejadian" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Regu yang Melaporkan" />
+                <TextView android:id="@+id/tvReguLapor" style="@style/LabelValue" />
+
+            </LinearLayout>
+
+            <!-- I. WAKTU DAN JARAK TKK -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="I. WAKTU DAN JARAK TKK" />
+
+                <TextView style="@style/LabelTitle" android:text="Waktu Laporan" />
+                <TextView android:id="@+id/tvWaktuLaporan" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Waktu Sampai" />
+                <TextView android:id="@+id/tvWaktuSampai" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Jarak" />
+                <TextView android:id="@+id/tvJarak" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Respon Time" />
+                <TextView android:id="@+id/tvResponTime" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Waktu Kembali Dari TKK" />
+                <TextView android:id="@+id/tvWaktuKembali" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- II. IDENTIFIKASI OBJEK KEBAKARAN -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="II. IDENTIFIKASI OBJEK KEBAKARAN" />
+
+                <TextView style="@style/LabelTitle" android:text="Objek" />
+                <TextView android:id="@+id/tvObjek" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Lokasi" />
+                <TextView android:id="@+id/tvLokasi" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Koordinat" />
+                <TextView android:id="@+id/tvKoordinat" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Koordinat (Geografis)" />
+                <TextView
+                    android:id="@+id/tvKoordinatGeografi"
+                    style="@style/LabelValue" />
+
+
+                <TextView style="@style/LabelTitle" android:text="Luas" />
+                <TextView android:id="@+id/tvLuas" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- III. IDENTITAS PELAPOR DAN PEMILIK -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="III. IDENTITAS PELAPOR DAN PEMILIK" />
+
+                <TextView
+                    style="@style/LabelTitle"
+                    android:text="Pelapor"
+                    android:textSize="18sp" />
+
+                <TextView style="@style/LabelTitle" android:text="Nama Pelapor" />
+                <TextView android:id="@+id/tvNamaPelapor" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="HP Pelapor" />
+                <TextView android:id="@+id/tvHpPelapor" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Alamat Pelapor" />
+                <TextView android:id="@+id/tvAlamatPelapor" style="@style/LabelValue" />
+
+                <TextView
+                    style="@style/LabelTitle"
+                    android:text="Pemilik"
+                    android:textSize="18sp" />
+
+                <TextView style="@style/LabelTitle" android:text="Nama Pemilik" />
+                <TextView android:id="@+id/tvNamaPemilik" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="HP Pemilik" />
+                <TextView android:id="@+id/tvHpPemilik" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Alamat Pemilik" />
+                <TextView android:id="@+id/tvAlamatPemilik" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- IV. JUMLAH TAKSIRAN ASET -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="IV. JUMLAH TAKSIRAN ASET" />
+
+                <TextView style="@style/LabelTitle" android:text="Jumlah dan Jenis Aset Diselamat" />
+                <TextView android:id="@+id/tvAsetSelamat" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Tafsiran Selamat" />
+                <TextView android:id="@+id/tvTafsiranSelamat" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Jumlah dan Jenis Aset Terbakar" />
+                <TextView android:id="@+id/tvAsetTerbakar" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Tafsiran Terbakar" />
+                <TextView android:id="@+id/tvTafsiranTerbakar" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Daftar Dokumen Terbakar" />
+                <TextView android:id="@+id/tvDokumenTerbakar" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- V. KRONOLOGI -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="V. KRONOLOGI KEJADIAN" />
+                <TextView android:id="@+id/tvKronologi" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- VI. PENANGGULANGAN -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="VI. PENANGGULANGAN" />
+                <TextView android:id="@+id/tvPenanggulangan" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- VII. KORBAN TERDAMPAK -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="VII. KORBAN TERDAMPAK" />
+
+                <TextView style="@style/LabelTitle" android:text="Jumlah Korban Diselamatkan" />
+                <TextView android:id="@+id/tvKorbanSelamat" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Daftar Korban" />
+
+                <LinearLayout
+                    android:id="@+id/containerKorban"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- VIII. KENDARAAN OPERASIONAL DAN PERALATAN -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="VIII. KENDARAAN OPERASIONAL DAN PERALATAN" />
+
+                <TextView style="@style/LabelTitle" android:text="Kendaraan" />
+                <TextView android:id="@+id/tvKendaraan" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Peralatan" />
+                <TextView android:id="@+id/tvPeralatan" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- IX. PETUGAS DAN INTANSI PEMBANTU -->
+            <LinearLayout style="@style/SectionCard">
+
+                <TextView style="@style/SectionTitle" android:text="IX. PETUGAS DAN INTANSI PEMBANTU" />
+
+                <TextView style="@style/LabelTitle" android:text="Regu" />
+                <TextView android:id="@+id/tvRegu" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Petugas" />
+                <TextView android:id="@+id/tvPetugas" style="@style/LabelValue" />
+
+                <TextView style="@style/LabelTitle" android:text="Instansi Yang Membantu" />
+                <TextView android:id="@+id/tvInstansi" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- X. KLASIFIKASI KEBAKARAN -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="X. KLASIFIKASI KEBAKARAN" />
+                <TextView android:id="@+id/tvKlasifikasi" style="@style/LabelValue" />
+            </LinearLayout>
+
+            <!-- Tombol bawah -->
+            <LinearLayout
+                android:id="@+id/buttonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="8dp"
+                android:background="#FFFFFF"
+                android:elevation="4dp">
+
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Edit"
+                    android:backgroundTint="@color/blue_dark"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btnShare"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bagikan"
+                    android:backgroundTint="@color/blue_dark"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

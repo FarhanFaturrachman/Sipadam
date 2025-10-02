@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="jenis_korban_array">
+        <item>Meninggal Dunia</item>
+        <item>Luka Bakar</item>
+        <item>Luka Fisik Lainnya</item>
+    </string-array>
+</resources>

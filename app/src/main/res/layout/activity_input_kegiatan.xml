@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+    <!-- Background logo buram -->
+    <ImageView
+        android:id="@+id/bg_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:alpha="0.2"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
+
+    <!-- Konten utama scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- INFORMASI UMUM -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView style="@style/SectionTitle" android:text="INFORMASI UMUM" />
+
+                <TextView style="@style/LabelTitle" android:text="Regu Yang Melaporkan" />
+                <AutoCompleteTextView
+                    android:id="@+id/etRegu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pilih / masukkan nama regu" />
+
+                <TextView style="@style/LabelTitle" android:text="Kegiatan" />
+                <AutoCompleteTextView
+                    android:id="@+id/etKegiatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tuliskan kegiatan" />
+            </LinearLayout>
+
+            <!-- WAKTU -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView style="@style/SectionTitle" android:text="WAKTU" />
+
+                <TextView style="@style/LabelTitle" android:text="Hari" />
+                <EditText
+                    android:id="@+id/etHari"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Hari"
+                    android:focusable="false"
+                    android:clickable="true" />
+
+                <TextView style="@style/LabelTitle" android:text="Tanggal" />
+                <EditText
+                    android:id="@+id/etTanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan tanggal"
+                    android:focusable="false"
+                    android:clickable="true" />
+
+                <TextView style="@style/LabelTitle" android:text="Waktu" />
+                <EditText
+                    android:id="@+id/etWaktu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan waktu"
+                    android:focusable="false"
+                    android:clickable="true" />
+            </LinearLayout>
+
+            <!-- LOKASI -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView style="@style/SectionTitle" android:text="LOKASI" />
+
+                <TextView style="@style/LabelTitle" android:text="Lokasi Kegiatan" />
+                <EditText
+                    android:id="@+id/etLokasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tuliskan lokasi kegiatan" />
+            </LinearLayout>
+
+            <!-- KETERANGAN -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView style="@style/SectionTitle" android:text="KETERANGAN" />
+
+                <RadioGroup
+                    android:id="@+id/rgKeterangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rbSudah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kegiatan sudah dilaksanakan" />
+
+                    <RadioButton
+                        android:id="@+id/rbSedang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kegiatan sedang berlangsung" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etKeterangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Narasikan penjelasan lebih detail dari kegiatan"
+                    android:inputType="textMultiLine"
+                    android:minLines="3" />
+            </LinearLayout>
+
+            <!-- Tombol Simpan -->
+            <Button
+                android:id="@+id/btnSimpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simpan Laporan"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@android:color/white"
+                style="?android:attr/buttonBarButtonStyle" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

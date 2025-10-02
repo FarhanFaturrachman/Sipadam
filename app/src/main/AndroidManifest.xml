@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sipadam">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/pemda"
+        android:label="SIPADAM"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Sipadam">
+        <activity
+            android:name=".laporanlainnya.laporankegiatan.DetailKegiatanActivity"
+            android:exported="false" />
+        <activity android:name=".laporanlainnya.laporankegiatan.EditKegiatanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".laporanlainnya.laporankegiatan.InputKegiatanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".laporanlainnya.laporankegiatan.LaporanKegiatanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.pencarianpenyelamatan.InputPencarianPenyelamatanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.pencarianpenyelamatan.DetailPencarianPenyelamatanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.pencarianpenyelamatan.ui.PencarianPenyelamatanActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Sipadam" />
+        <activity
+            android:name=".penyelamatan.gawatdarurat.InputGawatDaruratActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.gawatdarurat.DetailGawatDaruratActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.gawatdarurat.ui.GawatDaruratActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.gawatdarurat.EditGawatDaruratActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.pencarianpenyelamatan.EditPencarianPenyelamatanActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Sipadam" />
+        <activity
+            android:name=".penyelamatan.penangananbinatang.ui.PenangananBinatangActivity"
+            android:exported="true"
+            android:label="Penanganan Binatang"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" /> <!-- Splash Screen sebagai launcher -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Sipadam.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Activity lainnya -->
+        <activity
+            android:name=".penyelamatan.PenyelamatanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".laporanlainnya.LaporanLainnyaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pemadaman.PemadamanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="SIPADAM" />
+        <activity
+            android:name=".pemadaman.AddLaporanActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pemadaman.DetailLaporanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pemadaman.EditLaporanActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".penyelamatan.penangananbinatang.ui.InputPenangananBinatangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.penangananbinatang.ui.DetailPenangananBinatangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".penyelamatan.penangananbinatang.ui.EditPenangananBinatangActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Background logo buram -->
+    <ImageView
+        android:id="@+id/bg_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:alpha="0.2"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true" />
+
+    <!-- Konten scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- INFORMASI UMUM -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="INFORMASI UMUM"/>
+
+                <TextView style="@style/LabelTitle" android:text="Hari"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <AutoCompleteTextView
+                        android:id="@+id/etHari"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:hint="Masukkan Hari"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView style="@style/LabelTitle" android:text="Tanggal"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <EditText
+                        android:id="@+id/etTanggal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:hint="Masukkan Tanggal"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView style="@style/LabelTitle" android:text="Jenis Kejadian Kebakaran"/>
+                <EditText
+                    android:id="@+id/etJenisKejadian"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukkan Jenis Kejadian Kebakaran"/>
+                <TextView
+                    style="@style/LabelTitle"
+                    android:text="Regu yang Melaporkan"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/regu_lapor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Pilih Regu"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!-- I. WAKTU DAN JARAK TKK -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="I. WAKTU DAN JARAK TKK"/>
+
+                <TextView style="@style/LabelTitle" android:text="1. Laporan Diterima"/>
+                <EditText android:id="@+id/etWaktuLaporan" android:layout_width="match_parent" android:layout_height="wrap_content" android:focusable="false" android:clickable="true" android:hint="Masukan Waktu Laporan"/>
+
+                <TextView style="@style/LabelTitle" android:text="2. Tiba di TKK"/>
+                <EditText android:id="@+id/etWaktuSampai" android:layout_width="match_parent" android:layout_height="wrap_content" android:focusable="false" android:clickable="true" android:hint="Masukan Waktu Tiba di TKK"/>
+
+                <TextView style="@style/LabelTitle" android:text="3. Jarak ke TKK"/>
+                <EditText android:id="@+id/etJarak" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Jarak (km)" android:inputType="number"/>
+
+                <TextView style="@style/LabelTitle" android:text="4. Respon Time"/>
+                <EditText android:id="@+id/etResponTime" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Respon Time" android:inputType="number"/>
+
+                <TextView style="@style/LabelTitle" android:text="5. Pemadaman Kebakaran dinyatakan Selesai"/>
+                <EditText android:id="@+id/etWaktuKembali" android:layout_width="match_parent" android:layout_height="wrap_content" android:focusable="false" android:clickable="true" android:hint="Masukan waktu selesai"/>
+            </LinearLayout>
+
+            <!-- II. IDENTIFIKASI OBJEK KEBAKARAN -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="II. IDENTIFIKASI OBJEK KEBAKARAN"/>
+
+                <TextView style="@style/LabelTitle" android:text="1. Objek Yang Terbakar"/>
+                <EditText android:id="@+id/etObjek" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Objek Yang Terbakar"/>
+
+                <TextView style="@style/LabelTitle" android:text="2. Lokasi"/>
+                <EditText android:id="@+id/etAlamatDetail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Alamat detail (RT/RW, Kampung, dll)"/>
+                <AutoCompleteTextView android:id="@+id/etKabupaten" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Kabupaten"/>
+                <AutoCompleteTextView android:id="@+id/etKecamatan" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Kecamatan"/>
+                <AutoCompleteTextView android:id="@+id/etDesa" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Desa/Kelurahan"/>
+
+                <TextView style="@style/LabelTitle" android:text="3. Luas Area (m²)"/>
+                <EditText android:id="@+id/etLuas" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Luas Area"/>
+
+                <TextView style="@style/LabelTitle" android:text="4. Koordinat"/>
+                <EditText
+                    android:id="@+id/etKoordinat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Koordinat otomatis atau manual"/>
+
+                <EditText
+                    android:id="@+id/etKoordinatGeografi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Koordinat Geografi otomatis atau manual"
+                    android:focusable="false"
+                    android:clickable="false"/>
+                <Button
+                    android:id="@+id/btnTambahKoordinat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tambahkan Koordinat"
+                    android:backgroundTint="@color/blue_dark"/>
+
+
+            </LinearLayout>
+
+            <!-- III. IDENTITAS PELAPOR DAN PEMILIK -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="III. IDENTITAS PELAPOR DAN PEMILIK"/>
+
+                <TextView style="@style/LabelTitle" android:text="PELAPOR"/>
+                <TextView style="@style/LabelTitle" android:text="Nama Pelapor"/>
+                <EditText android:id="@+id/etNamaPelapor" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Nama Pelapor"/>
+                <TextView style="@style/LabelTitle" android:text="Alamat Pelapor"/>
+                <EditText android:id="@+id/etAlamatPelapor" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Alamat Pelapor"/>
+                <TextView style="@style/LabelTitle" android:text="No. HP Pelapor"/>
+                <EditText android:id="@+id/etHpPelapor" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Nomor HP Pelapor"/>
+
+                <TextView style="@style/LabelTitle" android:text="PEMILIK"/>
+                <TextView style="@style/LabelTitle" android:text="Nama Pemilik"/>
+                <EditText android:id="@+id/etNamaPemilik" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Nama Pemilik"/>
+                <TextView style="@style/LabelTitle" android:text="Alamat Pemilik"/>
+                <EditText android:id="@+id/etAlamatPemilik" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Alamat Pemilik"/>
+                <TextView style="@style/LabelTitle" android:text="No. HP Pemilik"/>
+                <EditText android:id="@+id/etHpPemilik" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan Nomor HP Pemilik"/>
+            </LinearLayout>
+
+            <!-- IV. JUMLAH TAKSIRAN ASET -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="IV. JUMLAH TAKSIRAN ASET"/>
+
+                <TextView style="@style/LabelTitle" android:text="1. Aset Diselamatkan"/>
+                <EditText android:id="@+id/etAsetSelamat" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Daftar aset yang diselamatkan"/>
+                <TextView style="@style/LabelTitle" android:text="Taksiran Diselamatkan"/>
+                <EditText android:id="@+id/etTafsiranSelamat" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan perkiraan nominal"/>
+
+                <TextView style="@style/LabelTitle" android:text="2. Aset Terbakar"/>
+                <EditText android:id="@+id/etAsetTerbakar" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Daftar aset yang terbakar"/>
+                <TextView style="@style/LabelTitle" android:text="Taksiran Terbakar"/>
+                <EditText android:id="@+id/etTafsiranTerbakar" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukkan perkiraan nominal"/>
+
+                <TextView style="@style/LabelTitle" android:text="3. Dokumen Penting Terbakar"/>
+                <LinearLayout android:id="@+id/layoutDokumen" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+                <EditText android:id="@+id/etDokumenLainnya" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dokumen lainnya (isi manual)"/>
+            </LinearLayout>
+
+            <!-- V. KRONOLOGI -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="V. KRONOLOGI KEJADIAN"/>
+                <EditText android:id="@+id/etKronologi" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tuliskan kronologi kejadian..." android:inputType="textMultiLine" android:minLines="3"/>
+            </LinearLayout>
+
+            <!-- VI. PENANGGULANGAN -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="VI. PENANGGULANGAN"/>
+                <EditText android:id="@+id/etPenanggulangan" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Langkah penanggulangan..." android:inputType="textMultiLine" android:minLines="2"/>
+            </LinearLayout>
+
+            <!-- VII. KORBAN TERDAMPAK -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="VII. KORBAN TERDAMPAK"/>
+                <TextView style="@style/LabelTitle" android:text="Jumlah Korban Diselamatkan"/>
+                <EditText android:id="@+id/etKorbanSelamat" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Masukan Jumlah Korban Yang Diselamatkan" android:inputType="number"/>
+                <TextView style="@style/LabelTitle" android:text="Daftar Korban"/>
+                <LinearLayout android:id="@+id/layoutKorbanContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+                <Button android:id="@+id/btnTambahKorban" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tambah Korban" android:backgroundTint="@color/blue_dark"/>
+            </LinearLayout>
+
+            <!-- VIII. KENDARAAN OPERASIONAL DAN PERALATAN -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="VIII. KENDARAAN OPERASIONAL DAN PERALATAN"/>
+                <TextView style="@style/LabelTitle" android:text="Kendaraan"/>
+                <LinearLayout android:id="@+id/layoutKendaraan" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+                <EditText android:id="@+id/etKendaraanLainnya" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Kendaraan lainnya (isi manual)"/>
+                <TextView style="@style/LabelTitle" android:text="Peralatan"/>
+                <EditText android:id="@+id/etPeralatan" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Daftar Peralatan"/>
+            </LinearLayout>
+
+            <!-- IX. PETUGAS DAN INSTANSI -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="IX. PETUGAS DAN INSTANSI MEMBANTU"/>
+                <LinearLayout android:id="@+id/layoutRegu" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+                <TextView style="@style/LabelTitle" android:text="Daftar Nama Petugas"/>
+                <EditText android:id="@+id/etPetugas" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Daftar Nama petugas"/>
+                <TextView style="@style/LabelTitle" android:text="Instansi Yang Membantu"/>
+                <EditText android:id="@+id/etInstansi" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Daftar Nama instansi"/>
+            </LinearLayout>
+
+            <!-- X. KLASIFIKASI KEBAKARAN -->
+            <LinearLayout style="@style/SectionCard">
+                <TextView style="@style/SectionTitle" android:text="X. KLASIFIKASI KEBAKARAN"/>
+                <EditText android:id="@+id/etKlasifikasi" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Klasifikasi Kebakaran (A/B/C/D)"/>
+            </LinearLayout>
+
+            <!-- Tombol Simpan -->
+            <Button
+                android:id="@+id/btnSimpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simpan Laporan"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

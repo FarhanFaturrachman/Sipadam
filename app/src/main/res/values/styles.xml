@@ -1,0 +1,49 @@
+<resources>
+    <style name="SectionCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:background">@drawable/bg_card</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#0D47A1</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="SubSectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#1565C0</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="LabelTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
+    <style name="LabelValue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#424242</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+    <style name="MyPopupMenuOverride" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">#2196F3</item> <!-- Background -->
+        <item name="colorOnSurface">#FF000000</item> <!-- Teks -->
+    </style>
+
+</resources>
