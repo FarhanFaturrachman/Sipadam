@@ -1,4 +1,4 @@
-package com.example.sipadam.pemadaman
+package com.example.sipadam.pemadaman.pemadamankebakaran
 
 import android.Manifest
 import android.app.DatePickerDialog
@@ -6,24 +6,41 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.example.sipadam.R
-import com.example.sipadam.pemadaman.data.AppDatabase
-import com.example.sipadam.pemadaman.data.model.Korban
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
-import com.google.android.gms.location.*
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
-import androidx.core.widget.addTextChangedListener
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.AppDatabase
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.Korban
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
+import kotlin.collections.get
 
 class AddLaporanActivity : AppCompatActivity() {
     private lateinit var reguLapor: AutoCompleteTextView
@@ -249,7 +266,8 @@ class AddLaporanActivity : AppCompatActivity() {
         }
         // Data Kabupaten & Kecamatan & Desa (sama seperti versi kamu)
         val kabupatenList = listOf("Purwakarta")
-        val adapterKabupaten = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, kabupatenList)
+        val adapterKabupaten =
+            ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, kabupatenList)
         etKabupaten.setAdapter(adapterKabupaten)
         etKabupaten.setText("Purwakarta", false)
         etKabupaten.setOnClickListener { etKabupaten.showDropDown() }
@@ -323,13 +341,18 @@ class AddLaporanActivity : AppCompatActivity() {
 
 
         // Adapter Kecamatan
-        val adapterKecamatan = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, kecamatanMap.keys.toList())
+        val adapterKecamatan = ArrayAdapter(
+            this,
+            android.R.layout.simple_dropdown_item_1line,
+            kecamatanMap.keys.toList()
+        )
         etKecamatan.setAdapter(adapterKecamatan)
         etKecamatan.setOnClickListener { etKecamatan.showDropDown() }
         etKecamatan.setOnItemClickListener { _, _, position, _ ->
             val kecamatan = adapterKecamatan.getItem(position)
             val desaList = kecamatanMap[kecamatan] ?: emptyList()
-            val adapterDesa = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, desaList)
+            val adapterDesa =
+                ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, desaList)
             etDesa.setAdapter(adapterDesa)
             etDesa.setText("", false)
             etDesa.setOnClickListener { etDesa.showDropDown() }
@@ -390,7 +413,7 @@ class AddLaporanActivity : AppCompatActivity() {
             val sec = (minFull - min) * 60
 
             // Pakai Locale.US biar desimal titik, dan %04.1f untuk leading zero detik
-            return String.format(Locale.US, "%d°%02d'%04.1f\"%s", deg, min, sec, dir)
+            return String.Companion.format(Locale.US, "%d°%02d'%04.1f\"%s", deg, min, sec, dir)
         }
 
         return "${toDMS(lat, true)} ${toDMS(lon, false)}"
@@ -531,7 +554,7 @@ class AddLaporanActivity : AppCompatActivity() {
             klasifikasi = findViewById<EditText>(R.id.etKlasifikasi).text.toString()
         )
 
-        val db = AppDatabase.getDatabase(this)
+        val db = AppDatabase.Companion.getDatabase(this)
         lifecycleScope.launch {
             val laporanIdLong = db.laporanDao().insert(laporan)
 
@@ -673,4 +696,3 @@ class AddLaporanActivity : AppCompatActivity() {
         return true
     }
 }
-

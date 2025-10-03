@@ -1,4 +1,4 @@
-package com.example.sipadam.pemadaman.data.model
+package com.example.sipadam.pemadaman.pemadamankebakaran.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

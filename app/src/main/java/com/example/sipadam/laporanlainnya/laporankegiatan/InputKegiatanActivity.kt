@@ -89,7 +89,7 @@ class InputKegiatanActivity : AppCompatActivity() {
         etRegu.setOnClickListener { etRegu.showDropDown() }
 
         // Dropdown kegiatan
-        val kegiatanList = listOf("Latihan Rutin", "Sosialisasi", "Rapat Koordinasi", "Pengawasan Lapangan")
+        val kegiatanList = listOf("Latihan pasukan", "Pengamanan (PAM)", "Sosialisasi dan Edukasi", "Penyemprotan", "Pembersihan")
         etKegiatan.setAdapter(ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, kegiatanList))
         etKegiatan.setOnClickListener { etKegiatan.showDropDown() }
 

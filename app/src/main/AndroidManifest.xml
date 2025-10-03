@@ -13,9 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sipadam">
         <activity
+            android:name=".pemadaman.pemadamansementara.InputSementaraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pemadaman.pemadamansementara.PemadamanSementaraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pemadaman.PemadamKebakaranActivity"
+            android:exported="false" />
+        <activity
             android:name=".laporanlainnya.laporankegiatan.DetailKegiatanActivity"
             android:exported="false" />
-        <activity android:name=".laporanlainnya.laporankegiatan.EditKegiatanActivity"
+        <activity
+            android:name=".laporanlainnya.laporankegiatan.EditKegiatanActivity"
             android:exported="false" />
         <activity
             android:name=".laporanlainnya.laporankegiatan.InputKegiatanActivity"
@@ -71,21 +81,21 @@
             android:name=".laporanlainnya.LaporanLainnyaActivity"
             android:exported="false" />
         <activity
-            android:name=".pemadaman.PemadamanActivity"
+            android:name=".pemadaman.pemadamankebakaran.PemadamanActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="SIPADAM" />
         <activity
-            android:name=".pemadaman.AddLaporanActivity"
+            android:name=".pemadaman.pemadamankebakaran.AddLaporanActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".pemadaman.DetailLaporanActivity"
+            android:name=".pemadaman.pemadamankebakaran.DetailLaporanActivity"
             android:exported="false" />
         <activity
-            android:name=".pemadaman.EditLaporanActivity"
+            android:name=".pemadaman.pemadamankebakaran.EditLaporanActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

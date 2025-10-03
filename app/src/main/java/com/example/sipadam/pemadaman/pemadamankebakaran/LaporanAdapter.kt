@@ -1,5 +1,6 @@
-package com.example.sipadam.pemadaman
+package com.example.sipadam.pemadaman.pemadamankebakaran
 
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +8,7 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sipadam.R
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
 
 class LaporanAdapter(
     private var laporanList: List<LaporanKebakaran>,
@@ -54,7 +55,7 @@ class LaporanAdapter(
         // Klik menu titik tiga
         holder.menuMore.setOnClickListener {
             // Gunakan ContextThemeWrapper agar popup menu pakai style custom
-            val wrapper = android.view.ContextThemeWrapper(
+            val wrapper = ContextThemeWrapper(
                 holder.itemView.context,
                 R.style.MyPopupMenuOverride
             )

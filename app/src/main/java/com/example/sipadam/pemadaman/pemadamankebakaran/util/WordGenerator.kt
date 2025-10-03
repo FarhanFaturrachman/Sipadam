@@ -1,7 +1,7 @@
-package com.example.sipadam.pemadaman.util
+package com.example.sipadam.pemadaman.pemadamankebakaran.util
 
 import android.content.Context
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
 import org.apache.poi.xwpf.usermodel.XWPFDocument
 import org.apache.poi.xwpf.usermodel.XWPFParagraph
 import org.apache.poi.xwpf.usermodel.XWPFTable

@@ -1,13 +1,13 @@
-package com.example.sipadam.pemadaman.data
+package com.example.sipadam.pemadaman.pemadamankebakaran.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.sipadam.pemadaman.data.dao.KorbanDao
-import com.example.sipadam.pemadaman.data.dao.LaporanDao
-import com.example.sipadam.pemadaman.data.model.Korban
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.dao.KorbanDao
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.dao.LaporanDao
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.Korban
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
 
 @Database(
     entities = [LaporanKebakaran::class, Korban::class],

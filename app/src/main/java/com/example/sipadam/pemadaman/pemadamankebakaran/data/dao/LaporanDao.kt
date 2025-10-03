@@ -1,4 +1,4 @@
-package com.example.sipadam.pemadaman.data.dao
+package com.example.sipadam.pemadaman.pemadamankebakaran.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
 
 @Dao
 interface LaporanDao {

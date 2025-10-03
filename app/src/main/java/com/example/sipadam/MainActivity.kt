@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
-import com.example.sipadam.pemadaman.PemadamanActivity
+import com.example.sipadam.pemadaman.pemadamankebakaran.PemadamanActivity
 import com.example.sipadam.penyelamatan.PenyelamatanActivity
 import com.example.sipadam.laporanlainnya.LaporanLainnyaActivity
 

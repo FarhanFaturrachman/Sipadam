@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F9FF"
-    tools:context=".pemadaman.PemadamanActivity">
+    tools:context=".pemadaman.pemadamankebakaran.PemadamanActivity">
 
     <!-- Background logo buram -->
     <ImageView

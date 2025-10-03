@@ -1,4 +1,4 @@
-package com.example.sipadam.pemadaman
+package com.example.sipadam.pemadaman.pemadamankebakaran
 
 import android.content.Intent
 import android.graphics.Color
@@ -15,10 +15,11 @@ import androidx.core.content.FileProvider
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.sipadam.R
-import com.example.sipadam.pemadaman.data.AppDatabase
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
-import com.example.sipadam.pemadaman.util.ShareUtils
-import com.example.sipadam.pemadaman.util.WordGenerator
+import com.example.sipadam.pemadaman.pemadamankebakaran.EditLaporanActivity
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.AppDatabase
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
+import com.example.sipadam.pemadaman.pemadamankebakaran.util.ShareUtils
+import com.example.sipadam.pemadaman.pemadamankebakaran.util.WordGenerator
 import com.google.android.material.appbar.MaterialToolbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -85,7 +86,7 @@ class DetailLaporanActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        val db = AppDatabase.getDatabase(this)
+        val db = AppDatabase.Companion.getDatabase(this)
 
         lifecycleScope.launch {
             laporan = withContext(Dispatchers.IO) {

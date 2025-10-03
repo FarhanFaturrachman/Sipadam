@@ -1,8 +1,8 @@
-package com.example.sipadam.pemadaman.util
+package com.example.sipadam.pemadaman.pemadamankebakaran.util
 
 import android.content.Context
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
-import com.example.sipadam.pemadaman.data.model.Korban
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.Korban
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.File
 import java.io.FileOutputStream

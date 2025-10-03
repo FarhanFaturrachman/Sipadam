@@ -1,4 +1,4 @@
-package com.example.sipadam.pemadaman
+package com.example.sipadam.pemadaman.pemadamankebakaran
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
@@ -19,15 +20,18 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sipadam.R
-import com.example.sipadam.pemadaman.data.AppDatabase
-import com.example.sipadam.pemadaman.data.dao.LaporanDao
-import com.example.sipadam.pemadaman.data.model.LaporanKebakaran
-import com.example.sipadam.pemadaman.util.ExcelGenerator
-import com.example.sipadam.pemadaman.util.ShareUtils
-import com.example.sipadam.pemadaman.util.WordGenerator
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.AppDatabase
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.dao.LaporanDao
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.Korban
+import com.example.sipadam.pemadaman.pemadamankebakaran.data.model.LaporanKebakaran
+import com.example.sipadam.pemadaman.pemadamankebakaran.util.ExcelGenerator
+import com.example.sipadam.pemadaman.pemadamankebakaran.util.ShareUtils
+import com.example.sipadam.pemadaman.pemadamankebakaran.util.WordGenerator
 import kotlinx.coroutines.launch
 import java.io.File
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 class PemadamanActivity : AppCompatActivity() {
 
@@ -41,7 +45,7 @@ class PemadamanActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pemadaman)
 
         // === ✅ Toolbar ===
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false) // karena kita pakai TextView custom
 
@@ -83,7 +87,7 @@ class PemadamanActivity : AppCompatActivity() {
         }
 
         // === Load data ===
-        laporanDao = AppDatabase.getDatabase(this).laporanDao()
+        laporanDao = AppDatabase.Companion.getDatabase(this).laporanDao()
         laporanDao.getAll().observe(this, Observer { list: List<LaporanKebakaran> ->
             laporanAdapter.updateData(list)
             tvKosong.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
@@ -155,7 +159,7 @@ class PemadamanActivity : AppCompatActivity() {
     // === Export Excel ===
     private fun exportExcel(tglAwal: String, tglAkhir: String) {
         lifecycleScope.launch {
-            val db = AppDatabase.getDatabase(this@PemadamanActivity)
+            val db = AppDatabase.Companion.getDatabase(this@PemadamanActivity)
             val laporanList = try {
                 db.laporanDao().getBetweenDates(tglAwal, tglAkhir)
             } catch (e: Exception) {
@@ -167,15 +171,15 @@ class PemadamanActivity : AppCompatActivity() {
                 db.korbanDao().getAll()
             } catch (e: Exception) {
                 e.printStackTrace()
-                emptyList<com.example.sipadam.pemadaman.data.model.Korban>()
+                emptyList<Korban>()
             }
 
             if (laporanList.isEmpty()) {
                 val all = try { db.laporanDao().getAllList() } catch (e: Exception) { emptyList<LaporanKebakaran>() }
                 val parsedFiltered = try {
-                    val sdfIso = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
-                    val sdfAlt = java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
-                    val sdfLong = java.text.SimpleDateFormat("dd MMMM yyyy", java.util.Locale("id", "ID"))
+                    val sdfIso = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                    val sdfAlt = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    val sdfLong = SimpleDateFormat("dd MMMM yyyy", Locale("id", "ID"))
 
                     val start = sdfIso.parse(tglAwal) ?: sdfAlt.parse(tglAwal) ?: sdfLong.parse(tglAwal)
                     val end = sdfIso.parse(tglAkhir) ?: sdfAlt.parse(tglAkhir) ?: sdfLong.parse(tglAkhir)
@@ -212,7 +216,7 @@ class PemadamanActivity : AppCompatActivity() {
 
     private fun proceedExport(
         laporanList: List<LaporanKebakaran>,
-        korbanList: List<com.example.sipadam.pemadaman.data.model.Korban>,
+        korbanList: List<Korban>,
         tglAwal: String,
         tglAkhir: String
     ) {
